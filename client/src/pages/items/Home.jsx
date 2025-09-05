@@ -12,7 +12,7 @@ import { EditItem } from "./EditItem";
 import { DeleteItem } from "./DeleteItem";
 
 export const Home = () => {
-    const [auth, setAuth] = useContext(AuthContext);
+    const auth = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
     const [items, setItems] = useState([]);
     const [saldo, setSaldo] = useState(0);
     const [gasto, setGasto] = useState(0);
@@ -44,11 +44,11 @@ export const Home = () => {
 
     useEffect(() => {
         const renderItems = async () => {
-            const fetchedItems = await UseFetchItems("get", AuthContext, null);
+            const fetchedItems = await UseFetchItems("get", auth, null);
             setItems(fetchedItems);
         };
         renderItems();
-    }, [])
+    }, []);
     useEffect(() => {
         let totalSaldo = 0;
         let totalGasto = 0;
