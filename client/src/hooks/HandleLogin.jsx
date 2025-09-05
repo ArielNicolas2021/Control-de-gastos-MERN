@@ -9,6 +9,7 @@ export const HandleLogin = async (username, password) => {
     if (response.status == 400) {
         return { status: response.status, message: response.message };
     } else {
-        return response;
+        localStorage.setItem('user', JSON.stringify(response));
+        return { status: 200, message: "Login successful" };
     }
 }
