@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { TextField, Button, Snackbar, Alert } from '@mui/material';
 import { HandleLogin } from '../../hooks/HandleLogin';
 import '../../styles/global.css';
@@ -9,6 +9,7 @@ export const Login = () => {
     const [passwordError, setPasswordError] = useState(false);
     const [open, setOpen] = useState(false);
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -19,7 +20,7 @@ export const Login = () => {
         if (data.status == 200) {
             event.target.usuario.value = "";
             event.target.contraseña.value = "";
-            window.location.href = '/items';
+            navigate('/items');
         } else {
             setMessage(data.message);
             setOpen(true);
