@@ -2,7 +2,7 @@ export const UseFetchItems = async (method, auth, data) => {
     switch (method) {
         case 'get':
             try {
-                const request = await fetch("http://localhost:1234/api/items", {
+                const request = await fetch("http://control-de-gastos-mern.onrender.com/api/items", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export const UseFetchItems = async (method, auth, data) => {
             break;
             case 'post':
                 try {
-                    const request = await fetch("http://localhost:1234/api/items", {
+                    const request = await fetch("http://control-de-gastos-mern.onrender.com/api/items", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export const UseFetchItems = async (method, auth, data) => {
             break;
         case 'put':
             try {
-                const request = await fetch(`http://localhost:1234/api/items/${data._id}`, {
+                const request = await fetch(`http://control-de-gastos-mern.onrender.com/api/items/${data._id}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export const UseFetchItems = async (method, auth, data) => {
             break;
         case 'delete':
             try {
-                const request = await fetch(`http://localhost:1234/api/items/${data._id}`, {
+                const request = await fetch(`http://control-de-gastos-mern.onrender.com/api/items/${data._id}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
