@@ -12,7 +12,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-const PORT = 1234
+const PORT = process.env.PORT || 1234
 app.use('/api/items', auth, Enrouter(Item_MDB))
 app.use('/api/users', CreateUsers(User_MDB))
 
