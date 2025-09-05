@@ -20,7 +20,8 @@ export const Login = () => {
         if (data.status == 200) {
             event.target.usuario.value = "";
             event.target.contraseña.value = "";
-            navigate('/items');
+            localStorage.setItem('user', JSON.stringify(data));
+            // navigate('/items');
         } else {
             setMessage(data.message);
             setOpen(true);
