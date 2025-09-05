@@ -12,7 +12,7 @@ import { EditItem } from "./EditItem";
 import { DeleteItem } from "./DeleteItem";
 
 export const Home = () => {
-    const [auth, setAuth] = useContext(AuthContext);
+    const [auth, setAuth] = useContext();
     const [items, setItems] = useState([]);
     const [saldo, setSaldo] = useState(0);
     const [gasto, setGasto] = useState(0);
@@ -44,6 +44,7 @@ export const Home = () => {
 
     useEffect(() => {
         const renderItems = async () => {
+            setAuth(AuthContext)
             const fetchedItems = await UseFetchItems("get", auth, null);
             setItems(fetchedItems);
         };
