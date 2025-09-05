@@ -10,10 +10,11 @@ export const RoutesProvider = () => {
         <BrowserRouter>
             <ProveedorContexto>
                 <Routes>
-                    <Route path='/' element={<Items />} />
+                    <Route path='/' element={<Login />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/registro' element={<Registro />} />
-                    <Route path='/items' element={<Home />} />
+                    <Route path='/items' element={<Items />} />
+                    <Route path='/items/list' element={<Home />} />
                     <Route path='*' element={<h1>ERROR NO EXISTE LA PAGINA, 404</h1>} />
                 </Routes>
             </ProveedorContexto>
