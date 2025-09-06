@@ -113,7 +113,7 @@ export const Home = () => {
                         variant="contained"
                         color="primary"
                         size="large"
-                        style={{ fontWeight: 'bold' }}
+                        style={{ fontWeight: 'bold', height: '48px' }}
                         onClick={handleAddItem}
                         fullWidth
                     >

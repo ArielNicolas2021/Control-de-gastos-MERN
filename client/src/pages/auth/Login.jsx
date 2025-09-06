@@ -8,6 +8,7 @@ export const Login = () => {
     const [userError, setUserError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [open, setOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ export const Login = () => {
         event.target.usuario.value == "" ? setUserError(true) : setUserError(false);
         event.target.contraseña.value == "" ? setPasswordError(true) : setPasswordError(false);
         if (event.target.usuario.value == "" || event.target.contraseña.value == "") return;
+        setLoading(true);
         const data = await HandleLogin(event.target.usuario.value, event.target.contraseña.value);
         if (data.status == 200) {
             event.target.usuario.value = "";
@@ -25,6 +27,7 @@ export const Login = () => {
             setMessage(data.message);
             setOpen(true);
         }
+        setLoading(false);
     }
 
     return (
@@ -57,7 +60,8 @@ export const Login = () => {
                         color="primary"
                         fullWidth
                         size='large'
-                        style={{ fontWeight: 'bold', backgroundColor: '#2484D3' }}
+                        style={{ fontWeight: 'bold' }}
+                        loading={loading}
                     >
                         Iniciar sesión
                     </Button>

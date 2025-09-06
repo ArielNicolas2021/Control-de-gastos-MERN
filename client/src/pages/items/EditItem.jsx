@@ -6,6 +6,7 @@ export const EditItem = ({ currentItem, handleEditItem, user, setItems, handleDe
     const [item, setItem] = useState(currentItem.item);
     const [amount, setAmount] = useState(currentItem.amount);
     const [type, setType] = useState(currentItem.type);
+    const [loading, setLoading] = useState(false);
     const handleTypeChange = (event) => {
         setType(event.target.value);
     };
@@ -15,8 +16,9 @@ export const EditItem = ({ currentItem, handleEditItem, user, setItems, handleDe
     const [amountError, setAmountError] = useState(false);
     const [typeError, setTypeError] = useState(false);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault();
+        setLoading(true);
         event.target.itemID.value == "" ? setItemIDError(true) : setItemIDError(false);
         event.target.item.value == "" ? setItemError(true) : setItemError(false);
         event.target.amount.value == "" ? setAmountError(true) : setAmountError(false);
@@ -30,9 +32,10 @@ export const EditItem = ({ currentItem, handleEditItem, user, setItems, handleDe
             item: item,
             type: type
         }
-        UseFetchItems('put', user, editItem);
+        await UseFetchItems('put', user, editItem);
         setItems(prevItems => prevItems.map(i => i._id === editItem._id ? editItem : i));
         handleEditItem();
+        setLoading(false);
     }
 
     return (
@@ -102,6 +105,7 @@ export const EditItem = ({ currentItem, handleEditItem, user, setItems, handleDe
                         size="large"
                         style={{ fontWeight: 'bold', height: '48px' }}
                         fullWidth
+                        loading={loading}
                     >
                         Enviar
                     </Button>

@@ -7,6 +7,7 @@ export const AddItem = ({ user, date, handleAddItem, setItems }) => {
     const [itemError, setItemError] = useState(false);
     const [amountError, setAmountError] = useState(false);
     const [typeError, setTypeError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const handleTypeChange = (event) => {
         setType(event.target.value);
     };
@@ -26,9 +27,11 @@ export const AddItem = ({ user, date, handleAddItem, setItems }) => {
             item: event.target.item.value,
             type: type
         };
+        setLoading(true);
         await UseFetchItems('post', user, newItem);
         setItems(prevItems => [...prevItems, newItem]);
         setOpen(true);
+        setLoading(false);
         handleAddItem();
     }
 
@@ -74,7 +77,7 @@ export const AddItem = ({ user, date, handleAddItem, setItems }) => {
                     <Button
                         variant="text"
                         size="large"
-                        style={{ fontWeight: 'bold' }}
+                        style={{ fontWeight: 'bold', height: '48px' }}
                         onClick={handleAddItem}
                         fullWidth
                     >
@@ -84,8 +87,9 @@ export const AddItem = ({ user, date, handleAddItem, setItems }) => {
                         type="submit"
                         variant="contained"
                         size="large"
-                        style={{ fontWeight: 'bold' }}
+                        style={{ fontWeight: 'bold', height: '48px' }}
                         fullWidth
+                        loading={loading}
                     >
                         Enviar
                     </Button>

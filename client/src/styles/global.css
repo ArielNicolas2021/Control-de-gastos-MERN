@@ -19,6 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 18px;
 }
 
@@ -26,6 +27,7 @@ body {
     background: #C1DDF6;
     padding: 1rem;
     width: 100%;
+    max-width: 375px;
     display: flex;
     flex-direction: column;
     gap: 1rem;

@@ -1,12 +1,16 @@
 import { Button } from "@mui/material"
 import { UseFetchItems } from "../../hooks/UseFetchItems"
+import { useState } from "react";
 
 export const DeleteItem = ({ currentItem, handleDeleteItem, user, setItems, setActive, setCurrentForm }) => {
-    const handleDelete = () => {
-        UseFetchItems('delete', user, currentItem);
+    const [loading, setLoading] = useState(false);
+    const handleDelete = async () => {
+        setLoading(true);
+        await UseFetchItems('delete', user, currentItem);
         setItems(prevItems => prevItems.filter(i => i._id !== currentItem._id));
         setActive(false);
         setCurrentForm("");
+        setLoading(false);
     }
 
     return (
@@ -29,6 +33,7 @@ export const DeleteItem = ({ currentItem, handleDeleteItem, user, setItems, setA
                     size="large"
                     style={{ fontWeight: 'bold', height: '48px' }}
                     onClick={handleDelete}
+                    loading={loading}
                     fullWidth
                 >
                     Eliminar

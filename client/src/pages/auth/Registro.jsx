@@ -9,6 +9,7 @@ export const Registro = () => {
     const [userError, setUserError] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [open, setOpen] = useState(false);
     const [messageError, setMessageError] = useState(false);
     const [message, setMessage] = useState("");
@@ -19,6 +20,7 @@ export const Registro = () => {
         event.target.email.value == "" ? setEmailError(true) : setEmailError(false);
         event.target.contraseña.value == "" ? setPasswordError(true) : setPasswordError(false);
         if (event.target.usuario.value == "" || event.target.email.value == "" || event.target.contraseña.value == "") return;
+        setLoading(true);
         const data = await HandleRegister(event.target.usuario.value, event.target.email.value, event.target.contraseña.value);
         if (data.status == 200) {
             event.target.usuario.value = "";
@@ -30,6 +32,7 @@ export const Registro = () => {
         }
         setMessage(data.message);
         setOpen(true);
+        setLoading(false);
     }
 
     return (
@@ -72,7 +75,8 @@ export const Registro = () => {
                         color="primary"
                         fullWidth
                         size='large'
-                        style={{ fontWeight: 'bold', backgroundColor: '#2484D3' }}
+                        style={{ fontWeight: 'bold' }}
+                        loading={loading}
                     >
                         Crear cuenta
                     </Button>
@@ -85,6 +89,7 @@ export const Registro = () => {
                 autoHideDuration={3000}
                 onClose={() => setOpen(false)}
                 message={message}
+                sx={{ width: '100%', maxWidth: '375px' }}
             >
                 <Alert
                     onClose={() => setOpen(false)}

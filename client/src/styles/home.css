@@ -1,4 +1,6 @@
 .app {
+    width: 100%;
+    max-width: 375px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -93,7 +95,7 @@
 }
 
 .app_items {
-    height: 339px;
+    height: 100%;
     overflow-y: auto;
     padding: 0 1rem;
     display: flex;
