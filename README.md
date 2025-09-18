@@ -20,7 +20,7 @@ editar, eliminar y leer ingresos y egresos.
 
 ![App Screenshot](./client/public/controldegastosdesktop.png)
 ![App Screenshot](./client/public/controldegastosmobile.png)
-![App Video](./client/public/Control%20de%20gastos%20MERN.mp4)
+![App Video](./client/public/videoDemo.mp4)
 
 ## Demo
 
