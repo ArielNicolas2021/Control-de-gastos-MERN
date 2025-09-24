@@ -1,5 +1,6 @@
 ![App Screenshot](./client/public/controldegastosmobile.png)
 <p style="text-align: center;">Hola</p>
+
 # Control de gastos MERN
 
 Aplicación ideal para controlar gastos personales. Podés agregar,
