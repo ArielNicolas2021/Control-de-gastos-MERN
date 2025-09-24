@@ -1,5 +1,4 @@
-![App Screenshot](./client/public/controldegastosmobile.png)
-<p align="center">Hola</p>
+<p align="center"><img src="./client/public/controldegastosmobile.png"></p>
 
 # Control de gastos MERN
 
