@@ -1,4 +1,4 @@
-<p align="center"><img src="./client/public/controldegastosmobile.png"></p>
+<p align="center"><img src="./assets/controldegastosmobile.png"></p>
 
 # Control de gastos MERN
 
