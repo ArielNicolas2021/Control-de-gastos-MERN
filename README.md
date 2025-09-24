@@ -1,4 +1,4 @@
-![App Screenshot](./client/public/controldegastosdesktop.png)
+![App Screenshot](./client/public/controldegastosmobile.png)
 # Control de gastos MERN
 
 Aplicación ideal para controlar gastos personales. Podés agregar,
@@ -16,12 +16,6 @@ editar, eliminar y leer ingresos y egresos.
 **Client:** React, Redux, React router dom, MaterialUI.
 
 **Server:** Node, Express, MongoDB, zod.
-
-## Screenshots
-
-
-![App Screenshot](./client/public/controldegastosmobile.png)
-![App Video](./client/public/videoDemo.mp4)
 
 ## Demo
 
