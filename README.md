@@ -1,3 +1,4 @@
+![App Screenshot](./client/public/controldegastosdesktop.png)
 # Control de gastos MERN
 
 Aplicación ideal para controlar gastos personales. Podés agregar,
@@ -18,7 +19,7 @@ editar, eliminar y leer ingresos y egresos.
 
 ## Screenshots
 
-![App Screenshot](./client/public/controldegastosdesktop.png)
+
 ![App Screenshot](./client/public/controldegastosmobile.png)
 ![App Video](./client/public/videoDemo.mp4)
 
